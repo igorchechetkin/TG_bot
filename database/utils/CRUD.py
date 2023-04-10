@@ -10,7 +10,9 @@ T = TypeVar('T')
 
 
 class _Store():
-
+    """
+    Базовый класс. Здесь происходит запись данных в БД.
+    """
     def store_data(db: db, model: T, *data: List[Dict]) -> None:
 
         with db.atomic():
@@ -18,7 +20,9 @@ class _Store():
 
 
 class _Retrieve():
-
+    """
+    Базовый класс. Здесь происходит чтение данных из БД.
+    """
     def retrieve_data(db: db, model: T, *columns: ModelBase) -> ModelSelect:
 
         with db.atomic():
@@ -28,7 +32,12 @@ class _Retrieve():
 
 
 class CRFactory():
+    """
+    Класс-фабрика. Работает с инкапсулированными классами чтения и записи в БД.
 
+    Поля:
+    CRUD (dict): словарь, где ключи - название команды для метода фабрики, значения - ссылка на метод нужного класса
+    """
     CRUD = {
         "store": _Store.store_data,
         "retrieve": _Retrieve.retrieve_data
