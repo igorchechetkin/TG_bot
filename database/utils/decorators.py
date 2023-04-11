@@ -7,7 +7,10 @@ from database.common.models import db
 T = TypeVar('T')
 
 class CRUDParameters():
-
+    """
+    Класс-декоратор. Выполняет функцию сведения к минимуму дублирования кода по запросам к базе данных.
+    Обязательное условие: декорируемый класс должен быть дочерним классом CRFactory.
+    """
     def __init__(self, command: str, db: db, model: T, *args) -> None:
         self.command = command
         self.db = db
