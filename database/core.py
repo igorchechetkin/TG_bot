@@ -85,7 +85,6 @@ class DBFactory():
         data = cls.RETRIEVED.get(command)
 
         if data:
-            print(data)
             return data
 
 

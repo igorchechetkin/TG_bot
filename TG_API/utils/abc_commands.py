@@ -5,10 +5,11 @@ from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import ContextTypes
 
 from database.core import DBFactory
-from logger.core import logged
+from logger.core import Logged
 
 
 database_request = DBFactory()
+logged = Logged()
 
 
 class StartCommand():

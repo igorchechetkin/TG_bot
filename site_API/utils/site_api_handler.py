@@ -1,8 +1,11 @@
 from abc import ABC, abstractmethod
 import logging
 
-from logger.core import logged
+from logger.core import Logged
 import requests
+
+
+logged = Logged()
 
 
 class _AbstractResponse(ABC):
